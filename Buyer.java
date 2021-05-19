@@ -3,36 +3,29 @@ package takeya;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class Buyer 
-{
+public class Buyer {
     Menu all = new Menu();
 
-    public int SetDo()
-    {
+    public int SetDo() {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("１：メニューを見る");
         System.out.println("２：現在の注文内容を確認する");
         System.out.println("３：お会計をする");
         System.out.print("？　");
         int num = 0;
-        while(true)
-        {
-            try
-            {
+        while(true) {
+            try {
                 String inputstr = br.readLine();
                 num = Integer.parseInt(inputstr);
-                if(num>=1 && num<=3)
-                {
+                if(num>=1 && num<=3) {
                     break;
                 }
-                else
-                {
+                else {
                     System.out.print("入力が正しくありません。再度入力してください。");
                     System.out.println(" ? ");
                 }
             }
-            catch(Exception ex)
-            {
+            catch(Exception ex) {
                 System.out.print("入力が正しくありません。再度入力してください。");
                 System.out.println(" ? ");
             }
@@ -42,8 +35,7 @@ public class Buyer
         
     }
 
-    public int SetMenu()
-    {
+    public int SetMenu() {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("メニューを選択してください");
         System.out.println("１：メインメニュー");
@@ -51,24 +43,19 @@ public class Buyer
         System.out.println("３：商品一覧");
         System.out.print("？　");
         int num = 0;
-        while(true)
-        {
-            try
-            {
+        while(true) {
+            try {
                 String inputstr = br.readLine();
                 num = Integer.parseInt(inputstr);
-                if(num>=1 && num<=3)
-                {
+                if(num>=1 && num<=3) {
                     break;
                 }
-                else
-                {
+                else {
                     System.out.print("入力が正しくありません。再度入力してください。");
                     System.out.println(" ? ");
                 }
             }
-            catch(Exception ex)
-            {
+            catch(Exception ex) {
                 System.out.print("入力が正しくありません。再度入力してください。");
                 System.out.println(" ? ");
             }
@@ -77,30 +64,24 @@ public class Buyer
         return num;
     }
 
-    public int SetItem()
-    {
+    public int SetItem() {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("購入したい商品の番号を入力してください");
         System.out.print("？　");
         int num = 0;
-        while(true)
-        {
-            try
-            {
+        while(true) {
+            try {
                 String inputstr = br.readLine();
                 num = Integer.parseInt(inputstr);
-                if(num>=0 && num<=all.getSize())
-                {
+                if(num>=0 && num<=all.getSize()) {
                     break;
                 }
-                else
-                {
+                else {
                     System.out.print("入力が正しくありません。再度入力してください。");
                     System.out.println(" ? ");
                 }
             }
-            catch(Exception ex)
-            {
+            catch(Exception ex) {
                 System.out.print("入力が正しくありません。再度入力してください。");
                 System.out.println(" ? ");
             }
@@ -109,8 +90,7 @@ public class Buyer
         return num;
     }
 
-    public int SetSIze()
-    {
+    public int SetSIze() {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("選択した商品サイズの番号を入力してください");
         System.out.println("NO.：サイズ：料金変化");
@@ -119,24 +99,19 @@ public class Buyer
         System.out.println("３：L：＋100円");
         System.out.print("？　");
         int num = 0;
-        while(true)
-        {
-            try
-            {
+        while(true) {
+            try {
                 String inputstr = br.readLine();
                 num = Integer.parseInt(inputstr);
-                if(num>=1 && num<=3)
-                {
+                if(num>=1 && num<=3) {
                     break;
                 }
-                else
-                {
+                else {
                     System.out.print("入力が正しくありません。再度入力してください。");
                     System.out.println(" ? ");
                 }
             }
-            catch(Exception ex)
-            {
+            catch(Exception ex) {
                 System.out.print("入力が正しくありません。再度入力してください。");
                 System.out.println(" ? ");
             }
@@ -145,22 +120,18 @@ public class Buyer
         return num;
     }
 
-    public int SetMoney()
-    {
+    public int SetMoney() {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("投入金額を入力してください");
         System.out.print("？　");
         int num = 0;
-        while(true)
-        {
-            try
-            {
+        while(true) {
+            try {
                 String inputstr = br.readLine();
                 num = Integer.parseInt(inputstr);
                 break;
             }
-            catch(Exception ex)
-            {
+            catch(Exception ex) {
                 System.out.print("入力が正しくありません。再度入力してください。");
                 System.out.println(" ? ");
             }

@@ -1,100 +1,81 @@
 package takeya;
 
-public class TicketMachine 
-{
+public class TicketMachine {
     Buyer buyer = new Buyer();
     Menu main = new MainMenu();
     Menu sub = new SubMenu();
     Menu all = new Menu();
     BuyItem item = new BuyItem();
     
-    public void StartBuy()
-    {
+    public void StartBuy() {
         System.out.println("いらっしゃいませ！竹屋へようこそ！\n");
         SelectMenu();
     }
 
-    public void SelectMenu()
-    {
+    public void SelectMenu() {
         System.out.println("何を行いますか？");
         int num = buyer.SetDo();
-        if(num == 1) //メニューを見る
-        {
+        if(num == 1) {  //メニューを見る
             DoMenu();
         }
-        else if(num == 2) //現在の注文内容を確認する
-        {
+        else if(num == 2) {  //現在の注文内容を確認する
             DoCheck();
         }
-        else if(num == 3) //お会計
-        {
+        else if(num == 3) {  //お会計
             DoBuy();
         }
     }
 
-    public void DoMenu()
-    {
+    public void DoMenu() {
         int num = buyer.SetMenu();
-        if(num==1)
-        {
+        if(num==1) {
             main.MenuList("メイン");
         }
-        else if(num==2)
-        {
+        else if(num==2) {
             sub.MenuList("サブ");
         }
-        else if(num==3)
-        {
+        else if(num==3) {
             all.MenuList("一覧");
         }
-        int buy_num = buyer.SetItem();
+        int buyNum = buyer.SetItem();
         Menu[] menu = {null,main, sub, all};
-        Menu menu_num = menu[num];
+        Menu menuNum = menu[num];
         String[] size = {null, "S", "M", "L"};
-        int size_num;
-        if(menu_num.getNum(buy_num) == 1)
-        {
-            size_num = buyer.SetSIze();
+        int sizeNum;
+        if(menuNum.getNum(buyNum) == 1) {
+            sizeNum = buyer.SetSIze();
         }
-        else
-        {
-            size_num = 0;
+        else {
+            sizeNum = 0;
         }
 
-        item.addBuyItem(menu_num.getName(buy_num), menu_num.getPrice(buy_num), size[size_num]);
-        System.out.println(menu_num.getName(buy_num) + "を追加しました。\n");
+        item.addBuyItem(menuNum.getName(buyNum), menuNum.getPrice(buyNum), size[sizeNum]);
+        System.out.println(menuNum.getName(buyNum) + "を追加しました。\n");
 
         SelectMenu();
     }
 
-    public void DoCheck()
-    {
+    public void DoCheck() {
         item.getBuyItem();
         SelectMenu();
     }
 
-    public void DoBuy()
-    {
-        if(item.main_buy >= 1)
-        {
+    public void DoBuy() {
+        if(item.mainBuy >= 1) {
             item.getBuyItem();
-            while(true)
-            {
-                System.out.println(item.price_sum + "円頂戴いたします\n");
+            while(true) {
+                System.out.println(item.priceSum + "円頂戴いたします\n");
                 int money = buyer.SetMoney();
-                if(item.price_sum - money > 0)
-                {
+                if(item.priceSum - money > 0) {
                     System.out.println("投入金額が足りません。再度入力してください");
                 }
-                else if(money - item.price_sum >= 0)
-                {
-                    System.out.println(money - item.price_sum + "円のお返しです。ありがとうございました！");
+                else if(money - item.priceSum >= 0) {
+                    System.out.println(money - item.priceSum + "円のお返しです。ありがとうございました！");
                     break;
                 }
             }
         }
-        else
-        {
+        else {
             System.out.println("メインメニューから１つ以上商品をご購入ください。\n");
             SelectMenu();
         }

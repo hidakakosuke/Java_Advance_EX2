@@ -1,30 +1,25 @@
 package takeya;
 
-public class BuyProduct
-{
-    private String name_;
-    private int price_;
-    private String size_;
+public class BuyProduct {
+    private String name;
+    private int price;
+    private String size;
 
-    public BuyProduct(String name, int price, String size)
-    {
-        name_ = name;
-        price_ = price;
-        size_ = size;
+    public BuyProduct(String name, int price, String size) {
+        this.name = name;
+        this.price = price;
+        this.size = size;
     }
 
-    public String getName()
-    {
-        return name_;
+    public String getName() {
+        return this.name;
     }
 
-    public int getPrice()
-    {
-        return price_;
+    public int getPrice() {
+        return this.price;
     }
 
-    public String getSize()
-    {
-        return size_;
+    public String getSize() {
+        return this.size;
     }
 }

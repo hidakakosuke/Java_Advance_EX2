@@ -7,20 +7,17 @@ public class Menu {
 
     List<Product> menu = new ArrayList<Product>();
     // メニューの作成
-    public void MenuList(String type) 
-    {
+    public void MenuList(String type) {
         System.out.println(type + "メニュー");
         System.out.println("ID：商品名：価格");
         makemenu();
-        for (int cnt = 0; cnt < menu.size(); cnt++) 
-        {
+        for (int cnt = 0; cnt < menu.size(); cnt++) {
             System.out.println(cnt+ "：" + menu.get(cnt).getName() + "：" + menu.get(cnt).getPrice() + "円");
         }
     }
 
     // 商品リストの作成
-    public List<Product> makemenu() 
-    {
+    public List<Product> makemenu() {
         menu.clear();
         Product list1 = new Product(1,"牛丼", 380);  
         Product list2 = new Product(1,"豚丼", 400); 
@@ -39,26 +36,22 @@ public class Menu {
         return menu;
     }
 
-    public int getNum(int num)
-    {
+    public int getNum(int num) {
         int number = menu.get(num).getNum();
         return number;
     }
 
-    public String getName(int num)
-    {
+    public String getName(int num) {
         String name = menu.get(num).getName();
         return name;
     }
 
-    public int getPrice(int num)
-    {
+    public int getPrice(int num) {
         int price = menu.get(num).getPrice();
         return price;
     }
 
-    public int getSize()
-    {
+    public int getSize() {
         makemenu();
         int num = menu.size();
         return num;
